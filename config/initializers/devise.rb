@@ -11,6 +11,7 @@ Devise.setup do |config|
   config.password_length = 8..128
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
+  config.scoped_views = true
   config.omniauth :facebook, "1778754202345754", "172ab9d9a281308dca7b7794b28b13b5"
   config.omniauth :google_oauth2, "726222497246-6orbq8fq3rqml2b2q3kvrdpea2htm0ii.apps.googleusercontent.com", "f3i7EDaFfwoObrxFrgWeG5JE"
   config.omniauth :twitter, "M5u41MZ1RCF9CX1stwIvfe1hD", "XJJncoHwffvQsdEfScObLlBDZ0GX93KlL4uiuXirjZIQkiEXOq"
