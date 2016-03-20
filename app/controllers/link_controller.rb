@@ -3,7 +3,8 @@ class LinkController < ApplicationController
 		link = Link.create!(link_params)
 
 		if link
-			flash[:short_url] = "#{request.host}:#{request.port}/#{link.short_url}"
+			flash[:short_url] = "#{request.protocol}#{request.host_with_port}/#{link.short_url}"
+      
 
 			redirect_to dashboard_path
 		else

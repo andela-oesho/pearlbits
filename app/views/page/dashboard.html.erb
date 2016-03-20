@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
-      <h2 class="text-center">Weclome current_user </h2>
+      <h2 class="text-center">Weclome current_user.name </h2>
       <br>
       <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
           <div class="form-group">
@@ -14,6 +14,7 @@
           <div>
             <%= link_to(flash[:short_url], flash[:short_url]) if flash[:short_url] %>
           </div>
+           <% end %>
     </div>
   </div>
 </div>
@@ -22,11 +23,6 @@
   <h2 class="sub-header">My Links</h2>
   <div class="table-responsive">
     <table class="table table-hover">
-    <table class="table table-active">
-    <table class="table table-success">
-    <table class="table table-info">
-    <table class="table table-warning">
-    <table class="table table-danger">
       <thead>
         <tr>
           <th>Short Url</th>
@@ -35,23 +31,25 @@
         </tr>
       </thead>
       <tbody>
-
+          <% if flash[:recent_links] %>
+            <% flash[:recent_links].select do |links| %>
+            <tr>
+              <th><%= links['short_url'] %></th>
+              <th></th>
+              <th><%= links['actual_url'] %></th>
+            </tr>
+          <% end %>
+        <% end %>
+        
           <tr>
-            <td><a></a>
+            <td> 
             </td>
             <td></span>
             </td>
-            <td></td>
-            <td></td>
+            <td>   </td>
+            <td>  </td>
             <td></td>
           </tr>
-        <% end %>
       </tbody>
     </table>
-    </table>
-    </table>
-    </table>
-    </table>
-    </table>
-</div>
-</div>
+    </div>
