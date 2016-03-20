@@ -5,9 +5,7 @@ class Link < ActiveRecord::Base
 
   def generate_short_url
     self.short_url = id.to_s(36)
-    binding.pry
-    self.actual_url = link
-    link = (link[0..3] == 'http') ? link : 'http://'+link
+   self.actual_url= (self.actual_url[0..3] == 'http') ? self.actual_url : 'http://'+link
     self.save
   end
 end

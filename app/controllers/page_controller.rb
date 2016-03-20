@@ -3,10 +3,6 @@ class PageController < ApplicationController
   end
   def login_page
   end
-  def authenticate_user!
-  end
-  def callbacks
-  end
   def dashboard
   end
 end
