@@ -22,34 +22,28 @@
 <div class="col-sm-12  col-sm-offset-0 btm-space" align ="center">
   <h2 class="sub-header">My Links</h2>
   <div class="table-responsive">
-    <table class="table table-hover">
+   <table class="table table-bordered">
       <thead>
-        <tr>
-          <th>Short Url</th>
-          <th>Clicks</th>
-          <th>Long Url</th>
+        <tr  >
+          <th> Short Url</th>
+          <th> Clicks</th>
+          <th> Long Url</th>
         </tr>
       </thead>
       <tbody>
           <% if flash[:recent_links] %>
             <% flash[:recent_links].select do |links| %>
-            <tr>
-              <th><%= links['short_url'] %></th>
-              <th></th>
-              <th><%= links['actual_url'] %></th>
+            <tr  >
+              <td><%= links['short_url'] %></td>
+              <td></td>
+              <td><%= links['actual_url'] %></td>
+              <td> Details  </td>
+            <td> edit  </td>
             </tr>
           <% end %>
         <% end %>
-        
-          <tr>
-            <td> 
-            </td>
-            <td></span>
-            </td>
-            <td>   </td>
-            <td>  </td>
-            <td></td>
-          </tr>
       </tbody>
+     
     </table>
+   
     </div>
