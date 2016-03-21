@@ -1,10 +1,12 @@
 class LinkController < ApplicationController
+  include ApplicationHelper
 	def create_url
 		link = Link.create!(link_params)
+    link.user_id = current_user.id
+    link.save
 
 		if link
 			flash[:short_url] = "#{request.protocol}#{request.host_with_port}/#{link.short_url}"
-      
 
 			redirect_to dashboard_path
 		else
