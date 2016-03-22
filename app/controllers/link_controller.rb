@@ -14,8 +14,11 @@ class LinkController < ApplicationController
   def handle_short_url
     link = Link.find_by(short_url: params[:short_url])
 
-    if link
+    if link.active
       redirect_to link.actual_url, status: 302
+       link.visits += 1
+       link.save
+   
     else
       redirect_to root_path
     end
