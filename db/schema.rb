@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20160322104938) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
-    t.string  "provider"
-    t.integer "uid"
-    t.string  "email"
+    t.string "name"
+    t.string "provider"
+    t.string "uid"
+    t.string "email"
   end
 
 end
