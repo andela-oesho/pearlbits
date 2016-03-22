@@ -11,17 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322024457) do
+ActiveRecord::Schema.define(version: 20160322093532) do
 
   create_table "links", force: :cascade do |t|
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "active",     default: true
+    t.boolean  "deleted",    default: false
+    t.integer  "count",      default: 0
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "short_url"
     t.string   "actual_url"
-    t.integer  "user_id"
     t.integer  "visits",     default: 0
-    t.boolean  "active",     default: true
   end
+
+  add_index "links", ["user_id"], name: "index_links_on_user_id"
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
@@ -34,26 +38,10 @@ ActiveRecord::Schema.define(version: 20160322024457) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "access_token"
-    t.string   "twitter_secret"
-    t.string   "name"
+    t.string  "name"
+    t.string  "email"
+    t.string  "provider"
+    t.integer "uid"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
