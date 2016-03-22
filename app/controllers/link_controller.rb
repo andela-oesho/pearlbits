@@ -4,11 +4,13 @@ class LinkController < ApplicationController
 		link = Link.create!(link_params)
     link.user_id = current_user.id if current_user
     link.save
-
-		if link
-			flash[:short_url] = "#{request.protocol}#{request.host_with_port}/#{link.short_url}"
+    if link
+		  flash[:short_url] = "#{request.protocol}#{request.host_with_port}/#{link.short_url}"
+    else
+      flash[:short_url] = nil
     end
-		redirect_page
+
+		redirect_page(link)
 	end
 
   def handle_short_url
@@ -28,9 +30,9 @@ class LinkController < ApplicationController
   	params.require(:link).permit(:actual_url)
   end
 
-  def redirect_page
+  def redirect_page(link)
     if current_user
-      redirect_to dashboard_path 
+      redirect_to dashboard_path
     else
       redirect_to root_path
     end
