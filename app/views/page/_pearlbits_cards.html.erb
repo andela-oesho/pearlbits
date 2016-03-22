@@ -35,8 +35,8 @@
 					<div class="pricing-list ">
 						<ul>
 						<% if flash[:anoymus_links] %>
-						<% flash[:anoymus_links].select do |links| %>
-						<li><%= link_to  "#{request.protocol}#{request.host_with_port}/"+ links['short_url']%> </li>
+						<% flash[:anoymus_links].select do |link| %>
+						<li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> </li>
 						<% end %>
 						<% end %>
 			
