@@ -1,7 +1,6 @@
 class PageController < ApplicationController
 	  include ApplicationHelper
   def index
-    @popular_links = Link.order(visits: :desc).limit(10)
   	flash[:anoymus_links] = Link.order(id: :desc).limit(10)
   	flash[:top_users] = User.order(id: :desc).limit(10)
   end
