@@ -36,11 +36,11 @@
         </thead>
         <tbody>
             <% if flash[:recent_links] %>
-              <% flash[:recent_links].select do |links| %>
+              <% flash[:recent_links].each do |link| %>
               <tr  >
-                <td><%= link_to "#{request.protocol}#{request.host_with_port}/" + links['short_url'] %></td>
-                <td></td>
-                <td><%= link_to links['actual_url'] %></td>
+                <td><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> </td>
+                <td> <%= link.visits %> </td>
+                <td><%= link_to link['actual_url'], link['actual_url'] %></td>
                 <td> Details  </td>
               <td> edit  </td>
               </tr>
