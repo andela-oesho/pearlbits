@@ -180,6 +180,7 @@ div {
     background-color: #df2626;
     border: 1px solid transparent;
     border-bottom: 4px solid;
+    border-width: 0;
 }
 
 .btn-primary {
@@ -479,3 +480,19 @@ footer {
 		margin-top:10px;
  	}
 }
+
+.pricing-list ul {
+    margin: 0;
+    padding: 0;
+}
+
+.table-responsive {
+    background: #000 none repeat scroll 0 0;
+    color: #fff;
+    min-height: 0.01%;
+}
+.navbar-fixed-top {
+    border-width: 0 0 12px;
+    top: 0;
+}
+
