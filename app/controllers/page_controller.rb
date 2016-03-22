@@ -2,6 +2,7 @@ class PageController < ApplicationController
 	  include ApplicationHelper
   def index
   	flash[:anoymus_links] = Link.order(id: :desc).limit(10)
+  	flash[:top_users] = User.order(id: :desc).limit(10)
   end
   def login_page
   end

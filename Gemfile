@@ -29,6 +29,7 @@ gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
 gem 'twitter'
 gem "figaro"
+gem 'activerecord-session_store'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
