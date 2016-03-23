@@ -9,7 +9,7 @@
 			<div class="col-lg-8 col-lg-offset-2">			
 				<%= form_for(:link, url: new_link_path) do |f| %>      
 				<div class="input-group">
-					<%= f.text_field :actual_url, placeholder: "Enter url" ,class:"form-control" %>
+					<%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control", required: true, data: { success: "ok", error: "Invalid" }  %>
 					<span class="input-group-btn">
 						<%= f.submit 'PearlBit!' ,class: "btn btn-primary btn-md", id: "make-link"%>
 					</span>
@@ -21,4 +21,6 @@
 	</section>
 	<%= render partial: 'pearlbits_cards' %>
 	<%=render partial: 'testimonial_section' %>
+
+	 
 

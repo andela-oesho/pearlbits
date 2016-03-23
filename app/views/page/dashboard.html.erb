@@ -7,7 +7,7 @@
         <br>
         <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
             <div class="form-group">
-              <%= f.text_field :actual_url, placeholder: "Enter url" ,class:"form-control input-lg" %>
+              <%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control input-lg", required: true, data: { success: "ok", error: "Invalid" }  %>
             </div>
             <div class="form-group text-center">
               <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
