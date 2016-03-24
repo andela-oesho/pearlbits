@@ -165,7 +165,7 @@ div {
     border-radius: 4px;
 }
 .input-group > .input-group-btn > .btn {
-    padding-top: 11px;
+    padding-top: 18px;
     padding-bottom: 11px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -191,7 +191,7 @@ div {
 
 .form-control {
     font-style: italic;
-    color: #b5b5b5;
+    color: #000;
     border: solid 5px #c0c0c0;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
@@ -497,11 +497,44 @@ footer {
 }
 
 .url_box {
-position: absolute;
-left: 10em;
-background: #000;
-width: 70%;
+    background: #fff none repeat scroll 0 0;
+    left: 30em;
+    margin-top: 30px;
+    position: absolute;
+    text-align: center;
+    width: 30%;
+}
 
-    
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #000;
+    border-radius: 10px;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+    padding: 15px;
+}
+
+
+.btn-social>:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    line-height: 34px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 0px solid rgba(0,0,0,0.2);
 }
 
