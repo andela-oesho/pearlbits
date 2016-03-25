@@ -1,0 +1,37 @@
+<div class ="container">
+<table>
+<tr>
+<td> Actual Url</td>
+<td> <%=  @link.actual_url %> </td>
+</tr>
+<tr>
+<td> Short Url</td>
+<td><%= @link.short_url%></td>
+</tr>
+<tr>
+<td> Created At</td>
+<td><%= @link.created_at %></td>
+</tr>
+<tr>
+<td> Visits </td>
+<td><%= @link.visits %> </td>
+</tr>
+</table>
+<thead> Details about the Link
+</thead>
+<table>
+<thead>
+
+<td>ip address </td>
+<td>browser_information</td>
+<td>referer</td>
+</thead>
+<% @link.statistics.each do |stat|  %>
+<tr>
+<td><%= stat.ip_address %></td>
+<td><%= stat.browser_information %></td>
+<td><%=  stat.referer %></td>
+</tr>
+<% end %>
+</table>
+</div>

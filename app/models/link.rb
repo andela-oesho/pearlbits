@@ -1,6 +1,7 @@
 class Link < ActiveRecord::Base
   belongs_to :user
-  has_many :clicks
+  has_many :statistics
+
 
   URL_MATCH = /\A(https?:\/\/)?([a-z0-9]+\.)?[a-z0-9\-]+\.[a-z]+.+[^\W\_]\z/
   validates :actual_url, presence: true, format: { with: URL_MATCH }

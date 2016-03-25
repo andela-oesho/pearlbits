@@ -1,0 +1,16 @@
+ <%= form_tag %>
+ <%=  text_field_tag  :actual_url,  @link.actual_url , class:"form-control input-lg"   %>
+ <select class="form-control" id="sel1" name="active">
+      <% if @link.active %>
+        <option value="active" selected>active</option>
+        <option value="inactive" >inactive</option>
+        <% else %>
+         <option value="active">active</option>
+        <option value="inactive" selected>inactive</option>
+
+        <% end %>
+     </select>
+      <%= submit_tag  'Update', class: "btn btn-primary btn-md" %>
+        <%=  link_to   'Delete ' ,  "/links/#{@link.id}/delete" %>
+
+

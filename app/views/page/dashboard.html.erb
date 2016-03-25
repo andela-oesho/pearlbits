@@ -42,9 +42,9 @@
               <tr  >
                 <td><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> </td>
                 <td> <%= link.visits %> </td>
-                <td><%= link_to link['actual_url'], link['actual_url'] %></td>
-                <td> Details  </td>
-              <td> edit  </td>
+                <td><%= link_to link.actual_url, link.actual_url %></td>
+                <td> <%= link_to 'Details', "links/#{link.id}"  %> </td>
+              <td> <%= link_to 'edit', "links/#{link.id}/edit"  %> </td>
               </tr>
             <% end %>
           <% end %>
