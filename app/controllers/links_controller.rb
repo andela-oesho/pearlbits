@@ -69,12 +69,20 @@ class LinksController < ApplicationController
   end
 
   def update
+    link = Link.find_by(id: params[:id])
+    link.update(actual_url: params[:actual_url], active: active_to_bool(params[:active]))
+    redirect_to dashboard_path
   end
 
   def delete
    link = Link.find_by(id: params[:id])
    link.update(deleted: true)
    redirect_to dashboard_path
+  end
+
+  def  active_to_bool(status)
+    return true if status == "active"
+    false
   end
 
 end
