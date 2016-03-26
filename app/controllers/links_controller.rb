@@ -5,6 +5,7 @@ class LinksController < ApplicationController
       flash[:error] = "Custom URL already exists"
     else
       link = Link.create!(link_params)
+
       link.user_id = current_user.id if current_user
       link.save
       if link
@@ -17,21 +18,17 @@ class LinksController < ApplicationController
   end
 
   def handle_short_url
-    link = Link.find_by(short_url: params[:short_url])
+    @link = Link.find_by(short_url: params[:short_url])
 
-    if link && link.active
-      redirect_to link.actual_url, status: 302
-      link.visits += 1
-      register_statistic(link)
-      link.save
-
+    if @link && !@link.deleted
+      direct_to_actual_url
     else
-      redirect_to root_path
+      render :deleted_error
     end
   end
 
   def exists
-    Link.find_by(short_url: params[:link][:vanity])
+    Link.find_by(short_url: params[:link][:vanity])  if current_user
   end
 
   def link_params
@@ -46,11 +43,22 @@ class LinksController < ApplicationController
     end
   end
 
-  def register_statistic(link)
+  def direct_to_actual_url
+    if @link.active
+      redirect_to @link.actual_url, status: 302
+      @link.visits += 1
+      register_statistic
+      @link.save
+    else
+        render :inactive_error
+    end
+  end
+
+  def register_statistic
     statistic = Statistic.new
     statistic.ip_address = request.remote_ip
     statistic.referer = request.referer
-    statistic.link_id = link.id
+    statistic.link_id = @link.id
     statistic.browser_information = browser_details
     statistic.save
   end
@@ -65,7 +73,7 @@ class LinksController < ApplicationController
   end
 
   def edit
-     @link = Link.find_by(id: params[:id])
+    @link = Link.find_by(id: params[:id])
   end
 
   def update
@@ -75,14 +83,19 @@ class LinksController < ApplicationController
   end
 
   def delete
-   link = Link.find_by(id: params[:id])
-   link.update(deleted: true)
-   redirect_to dashboard_path
+    link = Link.find_by(id: params[:id])
+    link.update(deleted: true)
+    redirect_to dashboard_path
   end
 
-  def  active_to_bool(status)
+  def active_to_bool(status)
     return true if status == "active"
     false
   end
 
+  def inactive_error
+  end
+
+  def deleted_error
+  end
 end

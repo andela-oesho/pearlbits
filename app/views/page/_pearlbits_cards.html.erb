@@ -17,8 +17,8 @@
                             <% @popular_links.each do |link| %>
                             <li><%= link_to "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> &nbsp; &nbsp; <span class="badge"> <%= link.visits %> hit(s) </span></li> </li>
                             <% end %>
-            
-                            
+
+
                             </ul>
                         </div>
                         <div class="pricing-footer">
@@ -34,15 +34,14 @@
 					</div>
 					<div class="pricing-list ">
 						<ul>
-						<% if flash[:anoymus_links] %>
-						<% flash[:anoymus_links].select do |link| %>
+						<% flash[:anoymus_links].each do |link| %>
 						<li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> &nbsp; &nbsp; <span class="badge"> <%= link.visits %> hit(s) </span></li>
 
 						<% end %>
-						<% end %>
-			
+
+
 						</ul>
-						
+
 					</div>
 					<div class="pricing-footer">
 					</div>
@@ -57,10 +56,8 @@
 					</div>
 					<div class="pricing-list">
 						<ul>
-							<% if flash[:top_users] %>
-						<% flash[:top_users].select do |names| %>
-						<li><%= names['name']%> </li>
-						<% end %>
+						<% @top_users.each do |user| %>
+						<li><%= user.name %> </li>
 						<% end %>
 						</ul>
 					</div>
