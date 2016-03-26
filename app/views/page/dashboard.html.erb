@@ -6,18 +6,21 @@
         <h3> <%= flash[:error] %></h3>
         </div>
         <br>
+
         <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
             <div class="form-group">
               <%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control input-lg", required: true, data: { success: "ok", error: "Invalid" }  %>
-               <%= f.text_field :vanity, placeholder: "e.g bitly.com" ,class:"form-control input-lg"   %>
+              <h3 style "text-align: center"> Enter Custom Url</h3>
+               <%= f.text_field :vanity, placeholder: "optional" ,class:"form-control input-lg"   %>
             </div>
             <div class="form-group text-center">
               <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
             </div>
 
             <div>
-              <%= link_to(flash[:short_url], flash[:short_url]) if flash[:short_url] %>
+              <%= show_url_message %>
             </div>
+
              <% end %>
       </div>
     </div>
@@ -30,7 +33,7 @@
     <div class="table-responsive">
      <table class="table table-bordered">
         <thead>
-          <tr  >
+          <tr>
             <th> Short Url</th>
             <th> Clicks</th>
             <th> Long Url</th>
@@ -39,8 +42,8 @@
         <tbody>
             <% if flash[:recent_links] %>
               <% flash[:recent_links].each do |link| %>
-              <tr  >
-                <td><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> </td>
+              <tr>
+                <td><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank"  %> </td>
                 <td> <%= link.visits %> </td>
                 <td><%= link_to link.actual_url, link.actual_url %></td>
                 <td> <%= link_to 'Details', "links/#{link.id}"  %> </td>

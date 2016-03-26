@@ -1,5 +1,5 @@
-<div class ="container">
-<table>
+<div class="table-responsive">
+<table class= "table table bordered">
 <tr>
 <td> Actual Url</td>
 <td> <%=  @link.actual_url %> </td>
@@ -17,21 +17,27 @@
 <td><%= @link.visits %> </td>
 </tr>
 </table>
-<thead> Details about the Link
-</thead>
-<table>
+</div>
+<div>
+<h5 style= "text-align: center"> Further Details about the Link</h5>
+<div class="table-responsive">
+<table class="table table-bordered">
 <thead>
-
-<td>ip address </td>
-<td>browser_information</td>
-<td>referer</td>
+<tr>
+<th>Ip Address </th>
+<th>Browser_Information</th>
+<th>Referer</th>
 </thead>
-<% @link.statistics.each do |stat|  %>
+</tr>
+<tbody>
+ <% @link.statistics.each do |stat|  %>
 <tr>
 <td><%= stat.ip_address %></td>
 <td><%= stat.browser_information %></td>
 <td><%=  stat.referer %></td>
 </tr>
 <% end %>
+</tbody>
+</table>
 </table>
 </div>
