@@ -6,9 +6,6 @@ class PageController < ApplicationController
     @top_users = User.order(link_count: :desc).limit(5)
   end
 
-  def login_page
-  end
-
   def dashboard
     flash[:recent_links] = Link.retrieve(current_user.id).order(id: :desc).limit(5)
   end
