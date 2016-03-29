@@ -79,6 +79,9 @@ class LinksController < ApplicationController
   def update
     link = Link.find_by(id: params[:id])
     link.update(actual_url: params[:actual_url], active: active_to_bool(params[:active]))
+    link.update(short_url: params[:short_url])
+    link.update(vanity: params[:vanity])
+    flash[:error] = "Link Updated Successfully"
     redirect_to dashboard_path
   end
 

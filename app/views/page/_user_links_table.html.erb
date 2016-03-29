@@ -1,0 +1,31 @@
+
+
+    <h4 class="sub-header text-center" >My Links</h4>
+
+    <div class="table-responsive">
+     <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th> Short Url</th>
+            <th> Clicks</th>
+            <th> Long Url</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% if flash[:recent_links] %>
+              <% flash[:recent_links].each do |link| %>
+              <tr>
+                <td><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank"  %> </td>
+                <td> <%= link.visits %> </td>
+                <td><%= link_to link.actual_url, link.actual_url %></td>
+                <td> <%= link_to 'Details', "links/#{link.id}", class: "btn btn-primary btn-md"%> </td>
+              <td> <%= link_to 'edit', "links/#{link.id}/edit", class: "btn btn-primary btn-md" %> </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+
+      </table>
+
+      </div>
+

@@ -10,6 +10,6 @@ class PageController < ApplicationController
   end
 
   def dashboard
-    flash[:recent_links] = Link.retrieve(current_user.id).order(id: :desc).limit(10)
+    flash[:recent_links] = Link.retrieve(current_user.id).order(id: :desc).limit(5)
   end
 end
