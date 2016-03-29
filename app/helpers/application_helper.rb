@@ -9,20 +9,22 @@ module ApplicationHelper
       end
   end
 
+  def show_user_message
+     if flash[:short_url]
+      render partial: "application/user_url_message"
+      end
+  end
+
   def login_or_logout
     if current_user
       link_to "Logout", logout_path, class: "btn btn-primary btn-bavel"
     else
 
-      link_to "Login", login_path, class:"btn btn-primary btn-bavel"
+      link_to "Login", login_path, class: "btn btn-primary btn-bavel"
     end
   end
 
   def user_dashboard
-     link_to "My Dashboard", dashboard_path, class:"btn btn-primary btn-bavel"  if current_user
+    link_to "My Dashboard", dashboard_path, class: "btn btn-primary btn-bavel" if current_user
    end
 end
-
-
-
-

@@ -28,7 +28,7 @@ class LinksController < ApplicationController
   end
 
   def exists
-    Link.find_by(short_url: params[:link][:vanity])  if current_user
+    Link.find_by(short_url: params[:link][:vanity]) if current_user
   end
 
   def link_params
@@ -50,7 +50,7 @@ class LinksController < ApplicationController
       register_statistic
       @link.save
     else
-        render :inactive_error
+      render :inactive_error
     end
   end
 
@@ -88,6 +88,7 @@ class LinksController < ApplicationController
   def delete
     link = Link.find_by(id: params[:id])
     link.update(deleted: true)
+    flash[:error] = "Link has been delted"
     redirect_to dashboard_path
   end
 

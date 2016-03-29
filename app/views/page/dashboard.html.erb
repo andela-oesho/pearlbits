@@ -4,12 +4,12 @@
       <div class="spacer">
 
         <h3 class=" profile text-center">Welcome <%= current_user.name %> </h3>
-        <h3> <%= flash[:error] %></h3>
+        <div class="spacer"> </div>
         </div>
-
-        <br>
-
+        <h3> <%= flash[:error] %></h3>
         <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
+        <div class="spacer"> </div>
+
             <div class="form-group">
              <div class="input-group">
                  <span class="input-group-addon" id="basic-addon3"><strong>Actual Url</strong> e.g https://google.com/</span>
@@ -21,18 +21,20 @@
                  </div>
             </div>
             <div class="form-group text-center">
-            <div class="spacer"> </div>
               <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
 
+
+                <% end %>
+ <%= show_user_message %>
             </div>
-
-
-
-             <% end %>
       </div>
     </div>
+
+
+
+
   </div>
-  <div class="spacer"> </div>
-  <%= render partial: 'recent_link_flash_card' %>
-  <%= render partial:  'user_links_table'   %>
+
+  <div class="spacer"></div>
+  <%= render partial:  'user_links_table' %>
 
