@@ -13,12 +13,12 @@
       </div>
       <div class="pricing-list">
         <ul>
-          <% if flash[:recent_links] %>
-          <% flash[:recent_links].each do |link| %>
+
+          <% @recent_links.each do |link| %>
           <li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %>  <br>  <%= link_to 'Details', "links/#{link.id}", class: "custombutton", :target => "_blank" %>
             <%= link_to 'edit', "links/#{link.id}/edit", class: "custombutton", :target => "_blank"  %></br></li>
             <% end %>
-            <% end %>
+
           </ul>
 
         </div>
@@ -41,19 +41,15 @@
         </div>
         <div class="pricing-list">
           <ul>
-            <% if flash[:recent_links] %>
-            <% flash[:recent_links].each do |link| %>
+            <% @recent_links.each do |link| %>
             <li><%= link_to  link.actual_url, link.actual_url, :target => "_blank"  %>  </li>
             <% end %>
-            <% end %>
           </ul>
-
         </div>
         <div class="pricing-footer">
         </div>
       </div>
     </div>
-
     <div class="col-md-4">
       <div class="pricing-table primary">
         <div class="panel panel-yellow">
@@ -68,14 +64,10 @@
         </div>
         <div class="pricing-list">
           <ul>
-            <% if flash[:recent_links] %>
-            <% flash[:recent_links].each do |link| %>
+            <% @recent_links.each do |link| %>
             <li><b><span class="badge"><%= link.visits %>hit(s)</br></span> </li>
               <% end %>
-              <% end %>
             </ul>
-
-
           </div>
           <div class="pricing-footer">
           </div>
