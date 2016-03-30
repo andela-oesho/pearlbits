@@ -1,10 +1,0 @@
-{:uriI"Šfile://app/assets/fonts/open-sans/generator_config.txt?type=text/plain&id=0faabc5e074077c8dea316939565a8e1c8d46eb586c8ed35441ef83b0dae4618:ET:load_pathI"app/assets/fonts;T:filenameI"4app/assets/fonts/open-sans/generator_config.txt;T:	nameI"open-sans/generator_config;T:logical_pathI"#open-sans/generator_config.txt;T:content_typeI"text/plain;T:sourceI"/# Font Squirrel Font-face Generator Configuration File
-# Upload this file to the generator to recreate the settings
-# you used to create these fonts.
-
-{"mode":"optimal","formats":["ttf","woff","woff2","eotz"],"tt_instructor":"default","fix_vertical_metrics":"Y","fix_gasp":"xy","add_spaces":"Y","add_hyphens":"Y","fallback":"none","fallback_custom":"100","options_subset":"basic","subset_custom":"","subset_custom_range":"","subset_ot_features_list":"","css_stylesheet":"stylesheet.css","filename_suffix":"-webfont","emsquare":"2048","spacing_adjustment":"0"};T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"4processors:type=text/plain&file_type=text/plain;TTI"Bfile-digest://app/assets/fonts/open-sans/generator_config.txt;TT:charsetI"
-utf-8;F:digest"% Òw0-g±¼a8kÑ™Íj…ÞBaÀ»¸n£ø¬	:lengthi/:dependencies_digest"%Æv¼zïÂþ)k%0k	Þ›…)Ø6ZûH=|!
-y:idI"E0faabc5e074077c8dea316939565a8e1c8d46eb586c8ed35441ef83b0dae4618;F:
-mtimel+‹têV
