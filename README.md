@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/andela-oesho/pearlbits.svg?branch=master)](https://travis-ci.org/andela-oesho/pearlbits)
+[![Build Status](https://travis-ci.org/andela-oesho/pearlbits.svg?branch=staging)](https://travis-ci.org/andela-oesho/pearlbits)
 [![Coverage Status](https://coveralls.io/repos/github/andela-oesho/pearlbits/badge.svg?branch=staging)](https://coveralls.io/github/andela-oesho/pearlbits?branch=staging)
 == README
 
