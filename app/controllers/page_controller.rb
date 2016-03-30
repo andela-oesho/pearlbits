@@ -8,6 +8,10 @@ class PageController < ApplicationController
   def login_page
   end
   def dashboard
-  	flash[:recent_links] =  Link.retrieve(current_user.id).order(id: :desc).limit(10)
+    if current_user
+      flash[:recent_links] = Link.retrieve(current_user.id).order(id: :desc).limit(5)
+    else
+      redirect_to root_path
+    end
   end
 end
