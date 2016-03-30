@@ -1,0 +1,45 @@
+<div class="spacer"> </div>
+<div class="table-responsive">
+<table class= "table table bordered">
+<tr>
+<td> Actual Url</td>
+<td> <%=  @link.actual_url %> </td>
+</tr>
+<tr>
+<td> Short Url</td>
+<td><%= "#{request.protocol}#{request.host_with_port}/#{@link.short_url}" %></td>
+</tr>
+<tr>
+<td> Created At</td>
+<td><%= date(@link.created_at) %></td>
+</tr>
+<tr>
+<td> Visits </td>
+<td><%= @link.visits %> </td>
+</tr>
+</table>
+</div>
+<div>
+<h5 style= "text-align: center"> Further Details about the Link</h5>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Ip Address </th>
+<th>Browser_Information</th>
+<th>Referer</th>
+</thead>
+</tr>
+<tbody>
+ <% @link.statistics.each do |stat|  %>
+<tr>
+<td><%= stat.ip_address %></td>
+<td><%= stat.browser_information %></td>
+<td><%=  stat.referer %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+</table>
+</div>
+<div class="spacer"></div>

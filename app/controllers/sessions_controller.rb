@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
-	include SessionsHelper
-	def new
-  	end
+  include SessionsHelper
+  def new
+    end
 
   def create
-  	if User.from_omniauth(env["omniauth.auth"])
+    if User.from_omniauth(env["omniauth.auth"])
 
-
-  		set_session(env["omniauth.auth"])
-  		redirect_to dashboard_path
-  	end
+      set_session(env["omniauth.auth"])
+      redirect_to dashboard_path
+    end
   end
 
   def destroy

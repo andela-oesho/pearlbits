@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="col-md-4">
+    <div class="pricing-table primary">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="glyphicon glyphicon-user"></i>
+            </div>
+            <div class="col-xs-9 text-center"><h3>My Recent Links</h3></div>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-list">
+        <ul>
+
+          <% @recent_links.each do |link| %>
+          <li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %>  <br>  <%= link_to 'Details', "links/#{link.id}", class: "custombutton", :target => "_blank" %>
+            <%= link_to 'edit', "links/#{link.id}/edit", class: "custombutton", :target => "_blank"  %></br></li>
+            <% end %>
+
+          </ul>
+
+        </div>
+        <div class="pricing-footer">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="pricing-table primary">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="glyphicon glyphicon-th-large"></i>
+              </div>
+              <div><h3> My Actual Url</h3></div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-list">
+          <ul>
+            <% @recent_links.each do |link| %>
+            <li><%= link_to  link.actual_url, link.actual_url, :target => "_blank"  %>  </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="pricing-table primary">
+        <div class="panel panel-yellow">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <span class=" glyphicon glyphicon-hand-up"></span>
+              </div>
+              <div><h3>Total Visits Counts</h3></div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-list">
+          <ul>
+            <% @recent_links.each do |link| %>
+            <li><b><span class="badge"><%= pluralize(link.visits, "hit") %></br></span> </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+          </div>
+        </div>
+      </div>
+
+    </div>

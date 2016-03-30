@@ -1,72 +1,66 @@
 <section id="Features">
-	<div class="container">
-		<div class="title-section">
-			<h4><strong>Features</strong></h4>
-		</div>
-		<div class="row">
-			    <div class="col-md-4">
-                    <div class="pricing-header">
-                    </div>
-                    <div class="pricing-table primary">
-                        <div class="pricing-title">
-                            <h5>Popular Links</h5>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="pricing-header">
+        </div>
+        <div class="pricing-table primary">
+          <div class="pricing-title">
+            <h5>Popular Links</h5>
 
-                        </div>
-                        <div class="pricing-list">
-                            <ul>
-                            <% @popular_links.each do |link| %>
-                            <li><%= link_to "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> &nbsp; &nbsp; <span class="badge"> <%= link.visits %> hit(s) </span></li> </li>
-                            <% end %>
-            
-                            
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                        </div>
-                    </div>
-                </div>
-			<div class="col-md-4">
-				<div class="pricing-header">
-				</div>
-				<div class="pricing-table primary">
-					<div class="pricing-title color-box-second">
-						<h5>Recent Links</h5>
-					</div>
-					<div class="pricing-list ">
-						<ul>
-						<% if flash[:anoymus_links] %>
-						<% flash[:anoymus_links].select do |link| %>
-						<li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> &nbsp; &nbsp; <span class="badge"> <%= link.visits %> hit(s) </span></li>
+          </div>
+          <div class="pricing-list">
+            <ul>
+              <% @popular_links.each do |link| %>
+              <li><%= link_to "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %> &nbsp; &nbsp;<br> <span class="badge"> <%= pluralize(link.visits, "hit") %> </span></li> </li></br>
+              <% end %>
 
-						<% end %>
-						<% end %>
-			
-						</ul>
-						
-					</div>
-					<div class="pricing-footer">
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="pricing-header">
-				</div>
-				<div class="pricing-table secondary">
-					<div class="pricing-title color-box-third">
-						<h5>Top PearlBiters</h5>
-					</div>
-					<div class="pricing-list">
-						<ul>
-							<% if flash[:top_users] %>
-						<% flash[:top_users].select do |names| %>
-						<li><%= names['name']%> </li>
-						<% end %>
-						<% end %>
-						</ul>
-					</div>
-					<div class="pricing-footer">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+
+            </ul>
+          </div>
+          <div class="pricing-footer">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pricing-header">
+        </div>
+        <div class="pricing-table primary">
+          <div class="pricing-title color-box-second">
+            <h5>Recent Links</h5>
+          </div>
+          <div class="pricing-list ">
+            <ul>
+              <% @anoymus_links.each do |link| %>
+              <li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %> &nbsp; &nbsp; <br> <span class="badge"> <%= pluralize(link.visits, "hit") %> </span></li></br>
+
+              <% end %>
+
+
+            </ul>
+
+          </div>
+          <div class="pricing-footer">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pricing-header">
+        </div>
+        <div class="pricing-table secondary">
+          <div class="pricing-title color-box-third">
+            <h5>Top PearlBiters</h5>
+          </div>
+          <div class="pricing-list">
+            <ul>
+              <% @top_users.each do |user| %>
+              <li><%= user.name %> </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

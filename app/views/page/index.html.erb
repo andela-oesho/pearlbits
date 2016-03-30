@@ -1,26 +1,27 @@
-	<section class="parallax bg-testimonial">
-		<div class="overlay"></div>
-		<div class="container"></div>
-		<div class="title-section small">
-			<h4>Join PearlBits</h4>
-			<p>leading link shortener built with rails....</p>
-		</div>
-		<div class="container">
-			<div class="col-lg-8 col-lg-offset-2">			
-				<%= form_for(:link, url: new_link_path) do |f| %>      
-				<div class="input-group">
-					<%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control", required: true, data: { success: "ok", error: "Invalid" }  %>
-					<span class="input-group-btn">
-						<%= f.submit 'PearlBit!' ,class: "btn btn-primary btn-md", id: "make-link"%>
-					</span>
-				</div>
+<section class="parallax bg-testimonial">
+	<div class="overlay"></div>
+	<div class="container"></div>
+	<div class="title-section small">
+		<h4>Join PearlBits</h4>
+		<p>leading link shortener built with rails....</p>
+	</div>
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<%= form_for(:link, url: new_link_path) do |f| %>
+			<div class="input-group">
+				<%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control", required: true, data: { success: "ok", error: "Invalid" }  %>
+				<span class="input-group-btn">
+				               <%= f.hidden_field :vanity, value: "", placeholder: "e.g bitly.com" ,class:"form-control input-lg"   %>
+					<%= f.submit 'PearlBit!' ,class: "btn btn-primary btn-md", id: "make-link"%>
+				</span>
 			</div>
 		</div>
-		<%= show_url_message %>
-		<% end %>
-	</section>
-	<%= render partial: 'pearlbits_cards' %>
-	<%=render partial: 'testimonial_section' %>
+	</div>
+	<%= show_url_message %>
+	<% end %>
+</section>
+<%= render partial: 'pearlbits_cards' %>
+<%=render partial: 'testimonial_section' %>
 
-	 
+
 

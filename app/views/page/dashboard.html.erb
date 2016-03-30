@@ -1,55 +1,33 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-      <div class= "title-section small" >
-        <h3 class="text-center">Welcome <%= current_user.name %> </h3>
-        <h3> <%= flash[:error] %></h3>
-        </div>
-        <br>
-        <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
-            <div class="form-group">
-              <%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control input-lg", required: true, data: { success: "ok", error: "Invalid" }  %>
-               <%= f.text_field :vanity, placeholder: "e.g bitly.com" ,class:"form-control input-lg"   %>
-            </div>
-            <div class="form-group text-center">
-              <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
-            </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="spacer">
 
-            <div>
-              <%= link_to(flash[:short_url], flash[:short_url]) if flash[:short_url] %>
-            </div>
-             <% end %>
+        <h3 class=" profile text-center">Welcome <br> <%= current_user.name %></br> </h3>
+        <div class="spacer"> </div>
+      </div>
+      <h3> <%= flash[:error] %></h3>
+      <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
+      <div class="spacer"> </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3"><strong>Actual Url</strong> e.g https://google.com/</span>
+          <%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control input-lg", required: true, data: { success: "ok", error: "Invalid" }  %>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3"> <strong> Vanity String </strong> e.g https://pearlbits.herokuapp.com/awesome/</span>
+          <%= f.text_field :vanity, placeholder: "optional" ,class:"form-control input-lg"   %>
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
+        <% end %>
+        <%= show_user_message %>
       </div>
     </div>
   </div>
-  <hr>
-  <div class="col-sm-12  col-sm-offset-0 btm-space" align ="center">
+</div>
+<div class="spacer"></div>
+<%= render partial:  'users_card' %>
 
-    <h5 class="sub-header">My Links</h5>
-
-    <div class="table-responsive">
-     <table class="table table-bordered">
-        <thead>
-          <tr  >
-            <th> Short Url</th>
-            <th> Clicks</th>
-            <th> Long Url</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% if flash[:recent_links] %>
-              <% flash[:recent_links].each do |link| %>
-              <tr  >
-                <td><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}" %> </td>
-                <td> <%= link.visits %> </td>
-                <td><%= link_to link['actual_url'], link['actual_url'] %></td>
-                <td> Details  </td>
-              <td> edit  </td>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-
-      </table>
-
-      </div>
