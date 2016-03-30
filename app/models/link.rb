@@ -16,7 +16,4 @@ class Link < ActiveRecord::Base
   def self.retrieve(id)
     where("user_id = ?", id)
   end
-
-  def customΩ
-  end
 end
