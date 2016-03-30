@@ -7,7 +7,7 @@
 </tr>
 <tr>
 <td> Short Url</td>
-<td><%= @link.short_url%></td>
+<td><%= "#{request.protocol}#{request.host_with_port}/#{@link.short_url}" %></td>
 </tr>
 <tr>
 <td> Created At</td>
