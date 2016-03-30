@@ -32,7 +32,11 @@ gem "figaro"
 gem "activerecord-session_store"
 gem "useragent"
 gem "font-awesome-sass"
-
+gem "rspec-rails"
+gem "rspec"
+gem "factory_girl_rails"
+gem  "simplecov"
+gem  "faker"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
