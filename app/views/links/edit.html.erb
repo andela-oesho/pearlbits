@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <h3 class="text-center">Active, Inactive, Delete, Update?</h3>
+
+      <%= form_tag %>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon3"> <strong> Your Actual Url </strong> </span>
+        <%=  text_field_tag  :actual_url,  @link.actual_url , class:"form-control input-lg"   %>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon3"> <strong> Edit Short Link Target </strong> e.g https://pearlbits.herokuapp.com/a/</span>
+        <%= text_field_tag :short_url,  @link.short_url, class:"form-control input-lg"   %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon3"> <strong> render active </strong>or inactive</span>
+        <select class="form-control" id="sel1" name="active">
+          <% if @link.active %>
+          <option value="active" selected>active</option>
+          <option value="inactive" >inactive</option>
+          <% else %>
+          <option value="active">active</option>
+          <option value="inactive" selected>inactive</option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group text-center spacer">
+
+        <%= submit_tag  'Update', class: "btn btn-primary btn-md" %>
+        <%=  link_to   'Delete ',  "/links/#{@link.id}/delete", class: "btn btn-primary btn-md" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,1 +1,10 @@
 /tmp
+/.bundle
+/Gemfile.lock
+?_yardoc
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/coverage
+/application.yml
