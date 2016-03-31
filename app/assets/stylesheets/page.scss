@@ -1,21 +1,10 @@
 body {
-  font-family: 'Gabriola';
+
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
   line-height: 30px;
   color: #595959;
   padding-top: 120px;
-}
-
-@font-face {
-  font-family: 'Gabriola';
-  src:url('/assets/ufonts.com_gabriola.eot');
-  src:url('/assets/ufonts.com_gabriola.ttf');
-  src:url('/assets/ufonts.com_gabriola.woff'),
-    url('/assets/ufonts.com_gabriola.woff') format('woff'),
-    url('/assets/ufonts.com_gabriola.eot') format('eot'),
-    url('/assets/ufonts.com_gabriola.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 a {
