@@ -7,7 +7,7 @@
             <div class="col-xs-3">
               <i class="glyphicon glyphicon-user"></i>
             </div>
-            <div class="col-xs-9 text-center">My Recent Links</div>
+            <div class="col-xs-9 text-center"><h3>My Recent Links</h3></div>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
               <div class="col-xs-3">
                 <i class="glyphicon glyphicon-th-large"></i>
               </div>
-              <div> My Actual Url</div>
+              <div><h3> My Actual Url</h3></div>
             </div>
           </div>
         </div>
@@ -58,14 +58,14 @@
               <div class="col-xs-3">
                 <span class=" glyphicon glyphicon-hand-up"></span>
               </div>
-              <div>Total Visits Counts</div>
+              <div><h3>Total Visits Counts</h3></div>
             </div>
           </div>
         </div>
         <div class="pricing-list">
           <ul>
             <% @recent_links.each do |link| %>
-            <li><b><span class="badge"><%= link.visits %>hit(s)</br></span> </li>
+            <li><b><span class="badge"><%= pluralize(link.visits, "hit") %></br></span> </li>
               <% end %>
             </ul>
           </div>

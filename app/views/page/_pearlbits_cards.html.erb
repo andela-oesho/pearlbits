@@ -15,7 +15,7 @@
           <div class="pricing-list">
             <ul>
               <% @popular_links.each do |link| %>
-              <li><%= link_to "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %> &nbsp; &nbsp;<br> <span class="badge"> <%= link.visits %> hit(s) </span></li> </li></br>
+              <li><%= link_to "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %> &nbsp; &nbsp;<br> <span class="badge"> <%= pluralize(link.visits, "hit") %> </span></li> </li></br>
               <% end %>
 
 
@@ -35,7 +35,7 @@
           <div class="pricing-list ">
             <ul>
               <% @anoymus_links.each do |link| %>
-              <li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %> &nbsp; &nbsp; <br> <span class="badge"> <%= link.visits %> hit(s) </span></li></br>
+              <li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %> &nbsp; &nbsp; <br> <span class="badge"> <%= pluralize(link.visits, "hit") %> </span></li></br>
 
               <% end %>
 
