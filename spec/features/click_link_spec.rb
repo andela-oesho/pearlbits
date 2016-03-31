@@ -9,9 +9,9 @@ describe "clicking a link", type: :feature do
       expect(page).to have_content "leading link shortener built with rails...."
       fill_in("link[actual_url]", with: "facebook.com")
       click_button("PearlBit!")
-      link = Link.last.short_url
+      link = Link.last
 
-      visit("/#{link}")
+      visit("/#{link.short_url}")
       expect(current_url).to eq "https://www.facebook.com/"
     end
   end
