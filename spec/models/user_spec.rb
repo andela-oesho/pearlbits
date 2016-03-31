@@ -4,6 +4,9 @@ RSpec.describe User, type: :model do
   before do
     User.destroy_all
   end
+  after do
+    User.destroy_all
+  end
   def credentials
     token = Faker::Number.number(6)
     { token: token, expires_at: Time.now + 1.week, secret: "mysecret" }
