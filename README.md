@@ -1,6 +1,7 @@
 
 [![Build Status](https://travis-ci.org/andela-oesho/pearlbits.svg?branch=staging)](https://travis-ci.org/andela-oesho/pearlbits)
 [![Coverage Status](https://coveralls.io/repos/github/andela-oesho/pearlbits/badge.svg?branch=staging)](https://coveralls.io/github/andela-oesho/pearlbits?branch=staging)
+[![Code Climate](https://codeclimate.com/github/andela-oesho/pearlbits/badges/gpa.svg)](https://codeclimate.com/github/andela-oesho/pearlbits)
 
 <h1> Pearlbit </h1>
 
