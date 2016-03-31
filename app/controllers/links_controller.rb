@@ -88,7 +88,7 @@ class LinksController < ApplicationController
   def delete
     link = Link.find_by(id: params[:id])
     link.update(deleted: true)
-    flash[:error] = "Link has been delted"
+    flash[:error] = "Link has been deleted"
     redirect_to dashboard_path
   end
 
