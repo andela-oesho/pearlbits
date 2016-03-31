@@ -11,7 +11,7 @@ require  "database_cleaner"
 Dir[Rails.root.join("spec/support/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
-
+Capybara.default_wait_time = 200
 RSpec.configure do |config|
  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

@@ -5095,3 +5095,320 @@ Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.5ms)
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "links" WHERE "links"."id" = ?[0m  [["id", 22]]
   [1m[35m (26.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2016-03-31 01:10:13 -0700
+Processing by PageController#index as HTML
+  [1m[35mLink Load (15.1ms)[0m  SELECT  "links".* FROM "links"  ORDER BY "links"."visits" DESC LIMIT 5
+  [1m[36mLink Load (0.3ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 5[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."link_count" DESC LIMIT 5
+  Rendered page/_pearlbits_cards.html.erb (45.5ms)
+  Rendered page/_testimonial_section.html.erb (0.9ms)
+  Rendered page/index.html.erb within layouts/application (195.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered page/_navbar.html.erb (29.9ms)
+  Rendered page/_footer.html.erb (0.5ms)
+Completed 200 OK in 3692ms (Views: 3624.3ms | ActiveRecord: 17.1ms)
+Started GET "/assets/application-b3582588ced5c9f774cc3e0da2e425a12b4b324c10bc2d9ada660605bcc0acc0.css" for 127.0.0.1 at 2016-03-31 01:10:18 -0700
+Started GET "/assets/application-ff076ecae21f1a8d60f3d837c604ebdc198f0c52686d1fd4669cedbefdb1c5be.js" for 127.0.0.1 at 2016-03-31 01:10:18 -0700
+Started GET "/assets/pearl_bits_logo.png" for 127.0.0.1 at 2016-03-31 01:10:19 -0700
+Started GET "/assets/home_accountant_slide.jpg" for 127.0.0.1 at 2016-03-31 01:10:19 -0700
+Started GET "/assets/home_languageschool_slider_bg.jpg" for 127.0.0.1 at 2016-03-31 01:10:19 -0700
+Started GET "/assets/ufonts.com_gabriola.woff" for 127.0.0.1 at 2016-03-31 01:10:19 -0700
+Started POST "/new/link" for 127.0.0.1 at 2016-03-31 01:10:25 -0700
+Processing by LinksController#create_url as HTML
+  Parameters: {"utf8"=>"✓", "link"=>{"actual_url"=>"facebook.com", "vanity"=>""}, "commit"=>"PearlBit!"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (9.5ms)[0m  [1mINSERT INTO "links" ("actual_url", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actual_url", "facebook.com"], ["vanity", ""], ["created_at", "2016-03-31 08:10:25.635718"], ["updated_at", "2016-03-31 08:10:25.635718"]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "links" SET "actual_url" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://facebook.com"], ["vanity", ""], ["created_at", "2016-03-31 08:10:25.635718"], ["updated_at", "2016-03-31 08:10:25.635718"], ["id", 23], ["short_url", "n"], ["id", 23]]
+  [1m[36m (6.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+Redirected to http://127.0.0.1:51663/
+Completed 302 Found in 57ms (ActiveRecord: 17.3ms)
+Started GET "/" for 127.0.0.1 at 2016-03-31 01:10:25 -0700
+Processing by PageController#index as HTML
+  Rendered application/_url.html.erb (0.8ms)
+  [1m[35mLink Load (0.4ms)[0m  SELECT  "links".* FROM "links"  ORDER BY "links"."visits" DESC LIMIT 5
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 5[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."link_count" DESC LIMIT 5
+  Rendered page/_pearlbits_cards.html.erb (3.1ms)
+  Rendered page/_testimonial_section.html.erb (0.1ms)
+  Rendered page/index.html.erb within layouts/application (15.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered page/_navbar.html.erb (1.3ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 18.6ms | ActiveRecord: 1.3ms)
+Started GET "/assets/pearl_bits_logo.png" for 127.0.0.1 at 2016-03-31 01:10:25 -0700
+Started GET "/assets/home_accountant_slide.jpg" for 127.0.0.1 at 2016-03-31 01:10:25 -0700
+Started GET "/assets/home_languageschool_slider_bg.jpg" for 127.0.0.1 at 2016-03-31 01:10:25 -0700
+  [1m[36mLink Load (0.4ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 1[0m
+Started GET "/n" for 127.0.0.1 at 2016-03-31 01:10:25 -0700
+Processing by LinksController#handle_short_url as HTML
+  Parameters: {"short_url"=>"n"}
+  [1m[35mLink Load (0.3ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."short_url" = ? LIMIT 1  [["short_url", "n"]]
+Redirected to http://facebook.com
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "statistics" ("ip_address", "link_id", "browser_information", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["ip_address", "127.0.0.1"], ["link_id", 23], ["browser_information", "Firefox 43.0"], ["created_at", "2016-03-31 08:10:25.985546"], ["updated_at", "2016-03-31 08:10:25.985546"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "links" SET "visits" = ?, "updated_at" = ? WHERE "links"."id" = ?[0m  [["visits", 1], ["updated_at", "2016-03-31 08:10:25.992660"], ["id", 23]]
+  [1m[35m (8.3ms)[0m  commit transaction
+Completed 302 Found in 44ms (ActiveRecord: 14.7ms)
+  [1m[36mLink Load (0.3ms)[0m  [1mSELECT "links".* FROM "links"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "links" WHERE "links"."id" = ?[0m  [["id", 17]]
+  [1m[35m (5.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "links" WHERE "links"."id" = ?  [["id", 18]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "links" WHERE "links"."id" = ?[0m  [["id", 19]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "links" WHERE "links"."id" = ?  [["id", 20]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "links" WHERE "links"."id" = ?[0m  [["id", 21]]
+  [1m[35m (3.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "links" WHERE "links"."id" = ?  [["id", 23]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2016-03-31 01:11:22 -0700
+Processing by PageController#index as HTML
+  [1m[35mLink Load (0.3ms)[0m  SELECT  "links".* FROM "links"  ORDER BY "links"."visits" DESC LIMIT 5
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 5[0m
+  [1m[35mUser Load (13.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."link_count" DESC LIMIT 5
+  Rendered page/_pearlbits_cards.html.erb (14.8ms)
+  Rendered page/_testimonial_section.html.erb (0.1ms)
+  Rendered page/index.html.erb within layouts/application (15.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered page/_navbar.html.erb (1.4ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 22ms (Views: 6.1ms | ActiveRecord: 14.1ms)
+Started GET "/assets/pearl_bits_logo.png" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Started GET "/assets/home_accountant_slide.jpg" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Started GET "/assets/home_languageschool_slider_bg.jpg" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Started GET "/assets/ufonts.com_gabriola.woff" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Started POST "/new/link" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Processing by LinksController#create_url as HTML
+  Parameters: {"utf8"=>"✓", "link"=>{"actual_url"=>"facebook.com", "vanity"=>""}, "commit"=>"PearlBit!"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "links" ("actual_url", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actual_url", "facebook.com"], ["vanity", ""], ["created_at", "2016-03-31 08:11:23.724351"], ["updated_at", "2016-03-31 08:11:23.724351"]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "links" SET "actual_url" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://facebook.com"], ["vanity", ""], ["created_at", "2016-03-31 08:11:23.724351"], ["updated_at", "2016-03-31 08:11:23.724351"], ["id", 24], ["short_url", "o"], ["id", 24]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+Redirected to http://127.0.0.1:51663/
+Completed 302 Found in 19ms (ActiveRecord: 10.9ms)
+Started GET "/" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Processing by PageController#index as HTML
+  Rendered application/_url.html.erb (0.1ms)
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links"  ORDER BY "links"."visits" DESC LIMIT 5
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 5[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."link_count" DESC LIMIT 5
+  Rendered page/_pearlbits_cards.html.erb (1.6ms)
+  Rendered page/_testimonial_section.html.erb (0.0ms)
+  Rendered page/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered page/_navbar.html.erb (1.9ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.9ms)
+Started GET "/assets/pearl_bits_logo.png" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Started GET "/assets/home_accountant_slide.jpg" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Started GET "/assets/home_languageschool_slider_bg.jpg" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+  [1m[36mLink Load (0.3ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" ASC LIMIT 1[0m
+Started GET "/" for 127.0.0.1 at 2016-03-31 01:11:23 -0700
+Processing by PageController#index as HTML
+  [1m[35mLink Load (0.3ms)[0m  SELECT  "links".* FROM "links"  ORDER BY "links"."visits" DESC LIMIT 5
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 5[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."link_count" DESC LIMIT 5
+  Rendered page/_pearlbits_cards.html.erb (2.2ms)
+  Rendered page/_testimonial_section.html.erb (0.1ms)
+  Rendered page/index.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered page/_navbar.html.erb (1.5ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.9ms)
+Started GET "/login" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  Rendered page/_navbar.html.erb (1.9ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.2ms)
+Started GET "/auth/twitter" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["provider", "default"], ["uid", "1234"]]
+Redirected to http://www.example.com/dashboard
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Started GET "/dashboard" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by PageController#dashboard as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links" WHERE (user_id = 1)  ORDER BY "links"."id" DESC LIMIT 5[0m
+  Rendered page/_users_card.html.erb (2.1ms)
+  Rendered page/dashboard.html.erb within layouts/application (17.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  Rendered page/_navbar.html.erb (0.9ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 39ms (Views: 34.8ms | ActiveRecord: 0.7ms)
+Started POST "/new/link" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by LinksController#create_url as HTML
+  Parameters: {"utf8"=>"✓", "link"=>{"actual_url"=>"futballtori.com", "vanity"=>""}, "commit"=>"Shorten Url"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."short_url" = ? LIMIT 1[0m  [["short_url", ""]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "links" ("actual_url", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actual_url", "futballtori.com"], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.126981"], ["updated_at", "2016-03-31 08:11:24.126981"]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "links" SET "actual_url" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://futballtori.com"], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.126981"], ["updated_at", "2016-03-31 08:11:24.126981"], ["id", 25], ["short_url", "p"], ["id", 25]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "links" SET "user_id" = ?, "updated_at" = ? WHERE "links"."id" = ?[0m  [["user_id", 1], ["updated_at", "2016-03-31 08:11:24.136562"], ["id", 25]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+Redirected to http://www.example.com/dashboard
+Completed 302 Found in 20ms (ActiveRecord: 9.9ms)
+Started GET "/dashboard" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by PageController#dashboard as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  Rendered application/_user_url_message.html.erb (0.6ms)
+  [1m[36mLink Load (0.3ms)[0m  [1mSELECT  "links".* FROM "links" WHERE (user_id = 1)  ORDER BY "links"."id" DESC LIMIT 5[0m
+  Rendered page/_users_card.html.erb (1.3ms)
+  Rendered page/dashboard.html.erb within layouts/application (5.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  Rendered page/_navbar.html.erb (0.8ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 1
+Started GET "/" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by PageController#index as HTML
+  [1m[36mLink Load (0.3ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."visits" DESC LIMIT 5[0m
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 5
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."link_count" DESC LIMIT 5[0m
+  Rendered page/_pearlbits_cards.html.erb (1.9ms)
+  Rendered page/_testimonial_section.html.erb (0.0ms)
+  Rendered page/index.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  Rendered page/_navbar.html.erb (1.4ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.8ms)
+Started GET "/login" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL LIMIT 1[0m
+  Rendered page/_navbar.html.erb (1.6ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.2ms)
+Started GET "/auth/twitter" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "default"], ["uid", "1234"]]
+Redirected to http://www.example.com/dashboard
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+Started GET "/dashboard" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by PageController#dashboard as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links" WHERE (user_id = 1)  ORDER BY "links"."id" DESC LIMIT 5
+  Rendered page/_users_card.html.erb (1.0ms)
+  Rendered page/dashboard.html.erb within layouts/application (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  Rendered page/_navbar.html.erb (0.6ms)
+  Rendered page/_footer.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.8ms)
+Started POST "/new/link" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by LinksController#create_url as HTML
+  Parameters: {"utf8"=>"✓", "link"=>{"actual_url"=>"futballtori.com", "vanity"=>"happiness"}, "commit"=>"Shorten Url"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."short_url" = ? LIMIT 1  [["short_url", "happiness"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "links" ("actual_url", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["actual_url", "futballtori.com"], ["vanity", "happiness"], ["created_at", "2016-03-31 08:11:24.243960"], ["updated_at", "2016-03-31 08:11:24.243960"]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "links" SET "actual_url" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?[0m  [["actual_url", "http://futballtori.com"], ["vanity", "happiness"], ["created_at", "2016-03-31 08:11:24.243960"], ["updated_at", "2016-03-31 08:11:24.243960"], ["id", 26], ["short_url", "happiness"], ["id", 26]]
+  [1m[35m (4.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "user_id" = ?, "updated_at" = ? WHERE "links"."id" = ?  [["user_id", 1], ["updated_at", "2016-03-31 08:11:24.253936"], ["id", 26]]
+  [1m[36m (4.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+Redirected to http://www.example.com/dashboard
+Completed 302 Found in 21ms (ActiveRecord: 11.4ms)
+Started GET "/dashboard" for 127.0.0.1 at 2016-03-31 01:11:24 -0700
+Processing by PageController#dashboard as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  Rendered application/_user_url_message.html.erb (0.1ms)
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links" WHERE (user_id = 1)  ORDER BY "links"."id" DESC LIMIT 5
+  Rendered page/_users_card.html.erb (1.5ms)
+  Rendered page/dashboard.html.erb within layouts/application (2.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1[0m  [["uid", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT 1  [["uid", "1234"]]
+  Rendered page/_navbar.html.erb (1.0ms)
+  Rendered page/_footer.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.5ms)
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links"  ORDER BY "links"."id" DESC LIMIT 1[0m
+  [1m[35mLink Load (0.2ms)[0m  SELECT "links".* FROM "links"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "links" WHERE "links"."id" = ?  [["id", 24]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "links" WHERE "links"."id" = ?[0m  [["id", 25]]
+  [1m[35m (5.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "links" WHERE "links"."id" = ?  [["id", 26]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("actual_url", "user_id", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.314482"], ["updated_at", "2016-03-31 08:11:24.314482"]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "links" SET "actual_url" = ?, "user_id" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.314482"], ["updated_at", "2016-03-31 08:11:24.314482"], ["id", 27], ["short_url", "r"], ["id", 27]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "links" ("actual_url", "user_id", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.353224"], ["updated_at", "2016-03-31 08:11:24.353224"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "actual_url" = ?, "user_id" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.353224"], ["updated_at", "2016-03-31 08:11:24.353224"], ["id", 28], ["short_url", "s"], ["id", 28]]
+  [1m[36m (4.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("actual_url", "user_id", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.363155"], ["updated_at", "2016-03-31 08:11:24.363155"]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "links" SET "actual_url" = ?, "user_id" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.363155"], ["updated_at", "2016-03-31 08:11:24.363155"], ["id", 29], ["short_url", "t"], ["id", 29]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("actual_url", "user_id", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.372475"], ["updated_at", "2016-03-31 08:11:24.372475"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "actual_url" = ?, "user_id" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.372475"], ["updated_at", "2016-03-31 08:11:24.372475"], ["id", 30], ["short_url", "u"], ["id", 30]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("actual_url", "user_id", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.381948"], ["updated_at", "2016-03-31 08:11:24.381948"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "actual_url" = ?, "user_id" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.381948"], ["updated_at", "2016-03-31 08:11:24.381948"], ["id", 31], ["short_url", "v"], ["id", 31]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "links" ("actual_url", "user_id", "vanity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.390363"], ["updated_at", "2016-03-31 08:11:24.390363"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "links" SET "actual_url" = ?, "user_id" = ?, "vanity" = ?, "created_at" = ?, "updated_at" = ?, "id" = ?, "short_url" = ? WHERE "links"."id" = ?  [["actual_url", "http://bitly.com"], ["user_id", 3], ["vanity", ""], ["created_at", "2016-03-31 08:11:24.390363"], ["updated_at", "2016-03-31 08:11:24.390363"], ["id", 32], ["short_url", "w"], ["id", 32]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "links" WHERE "links"."id" = ?[0m  [["id", 32]]
+  [1m[35m (3.9ms)[0m  commit transaction
