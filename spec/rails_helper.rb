@@ -7,7 +7,7 @@ require "spec_helper"
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara/rails"
-Capybara.default_driver = :selenium
+require  "database_cleaner"
 Dir[Rails.root.join("spec/support/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -15,7 +15,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
- config.use_transactional_fixtures = true
+ config.use_transactional_fixtures = false
 
  config.infer_spec_type_from_file_location!
 
