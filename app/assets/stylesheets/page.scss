@@ -12,7 +12,7 @@ body {
 }
 
 a {
-  color: #df2626;
+  color: #337ab7;
   text-decoration: none;
   font-size: 14px;
 }
@@ -178,20 +178,20 @@ div {
 }
 
 .input-group > .input-group-btn > .btn {
-  padding-top: 18px;
+  padding-top: 22px;
   padding-bottom: 11px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  background: #df2626;
+  background: #337ab7;
   color: #fff;
-  border-color: #df2626;
+  border-color: #337ab7;
 }
 
 .btn-primary.btn-bavel {
   border-bottom-color: #b41616;
-  background-color: #df2626;
+  background-color: #337ab7;
   border: 1px solid transparent;
   border-bottom: 4px solid;
   border-width: 0;
@@ -199,8 +199,8 @@ div {
 
 .btn-primary {
   color: #fff;
-  background-color: #df2626;
-  border-color: #df2626;
+  background-color: #337ab7;
+  border-color: #337ab7;
   font-size: 14px;
 }
 
@@ -242,7 +242,7 @@ div {
   font-weight: 300;
   padding: 0;
   margin-top: -9px;
-  color: #df2626;
+  color: #337ab7;
   font-size: 20px;
 }
 
@@ -355,11 +355,11 @@ section > .container {
   margin-bottom: 34px;
 }
 .pricing-header {
-  background: #f6f6f6;
+  background: #337ab7;
   padding: 32px 0px 2px;
 }
 .pricing-title {
-  background: #787878;
+  background: #337ab7;
   padding: 13px 0px 1px;
   color: #fff;
 }
@@ -376,12 +376,12 @@ section > .container {
   padding: 20px 0px;
 }
 .color-box-second {
-  background-color: #df2626;
+  background-color: #337ab7;
   color: #fff;
 }
 
 .color-box-third {
-  background-color: #39a151;
+  background-color: #337ab7;
   color:#fff;
 }
 
@@ -553,19 +553,19 @@ footer {
 }
 
 .panel-green .panel-heading {
-  border-color: #5CB85C;
+  border-color: #337ab7;
   color: #FFF;
-  background-color: #5CB85C;
+  background-color: #337ab7;
 }
 .panel-yellow .panel-heading {
-  border-color: #F0AD4E;
+  border-color: #337ab7;
   color: #FFF;
-  background-color: #F0AD4E;
+  background-color: #337ab7;
 }
 .panel-red .panel-heading {
-  border-color: #D9534F;
+  border-color: #337ab7;
   color: #FFF;
-  background-color: #D9534F;
+  background-color: #337ab7;
 }
 
 .panel-heading {
@@ -617,7 +617,7 @@ h3, .h3 {
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
-  background: #df2626;
+  background: #337ab7;
   color: #fff;
   border: 1px solid transparent;
   white-space: nowrap;
@@ -626,6 +626,11 @@ h3, .h3 {
   line-height: 1.42857143;
   border-radius: 4px;
   -webkit-user-select: none;
+}
+
+.welcome {
+  color: #337ab7;
+  font-size: 1.2em;
 }
 
 

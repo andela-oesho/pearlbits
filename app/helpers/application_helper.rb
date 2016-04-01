@@ -29,4 +29,10 @@ module ApplicationHelper
       link_to "My Dashboard", dashboard_path, class: "btn btn-primary btn-bavel"
     end
   end
+
+  def welcome_user
+    if current_user
+     "Hi" + " " + current_user.name
+   end
+  end
 end
