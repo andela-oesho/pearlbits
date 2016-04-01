@@ -19,14 +19,13 @@ module ApplicationHelper
     if current_user
       link_to "Logout", logout_path, class: "btn btn-primary btn-bavel"
     else
-
       link_to "Login", login_path, class: "btn btn-primary btn-bavel"
     end
   end
 
   def user_dashboard
     if current_user
-      link_to "My Dashboard", dashboard_path, class: "btn btn-primary btn-bavel"
+      link_to "My Dashboard", dashboard_path, class: "btn btn-primary"
     end
   end
 

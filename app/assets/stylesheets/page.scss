@@ -51,29 +51,6 @@ p {
   background-image: url(/assets/pearl_bits_logo.png);
 }
 
-.navbar-nav li a,
-.navbar-nav li a:focus,
-.navbar-nav li a:active {
-  padding:50px 7px 50px 7px;
-  margin:0;
-  color:#5c5c5c;
-  font-size:13px;
-  line-height:13px;
-  font-weight:700;
-  text-transform:uppercase;
-  border-top:5px solid transparent;
-  -webkit-transition: background .8s ease-in-out,padding .8s ease-in-out;
-  -moz-transition: background .8s ease-in-out,padding .8s ease-in-out;
-  transition: background .8s ease-in-out,padding .8s ease-in-out;
-}
-
-.navbar-nav li a:hover,
-.navbar-nav li a:focus,
-.navbar-nav li a:active,
-.navbar-nav li.dropdown a:focus,
-.navbar-nav li.dropdown a:active{
-  background:none;
-}
 
 .dropdown-menu {
   margin: 0;
@@ -177,24 +154,38 @@ div {
   border-radius: 4px;
 }
 
-.input-group > .input-group-btn > .btn {
-  padding-top: 22px;
-  padding-bottom: 11px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  background: #337ab7;
-  color: #fff;
-  border-color: #337ab7;
-}
+
 
 .btn-primary.btn-bavel {
   border-bottom-color: #b41616;
   background-color: #337ab7;
+}
+
+
+.input-group > .input-group-btn > .btn {
+    padding-top: 12px;
+    padding-bottom: 13px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    background: #337ab7;
+    color: #fff;
+    border-color: #337ab7;
+    margin-top: -2px;
+  }
+
+.btn-primary.btn-bavel {
+  border-bottom-color: #b41616;
+  background-color: #b41616;
   border: 1px solid transparent;
   border-bottom: 4px solid;
   border-width: 0;
+  margin-top: 10px;
+}
+
+img {
+margin-top: 10px;
 }
 
 .btn-primary {
@@ -202,12 +193,13 @@ div {
   background-color: #337ab7;
   border-color: #337ab7;
   font-size: 14px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .form-control {
   font-style: normal;
   color: #000;
-  border: solid 5px #c0c0c0;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   -o-border-radius: 0px;
@@ -220,13 +212,8 @@ div {
   box-shadow: none;
   display: block;
   padding: 0px 18px;
-  height: 51px;
+  height: 43px;
   font-size: 13px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
 }
 
 .input-group .form-control {
@@ -241,12 +228,12 @@ div {
 .title-section > h4 {
   font-weight: 300;
   padding: 0;
-  margin-top: -9px;
   color: #337ab7;
   font-size: 20px;
 }
 
 .parallax {
+  top: -99px;
   position: relative;
   color: #fff;
   background-image: url(/assets/home_accountant_slide.jpg);
@@ -255,7 +242,19 @@ div {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding: 100px 0;
+}
+
+.firstintro {
+  position: relative;
+  color: #fff;
+  background-image: url(/assets/home_accountant_slide.jpg);
+  background-position: center center;
+  background-attachment: fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  top: -50px;
 }
 
 .carousel-bg {
@@ -267,7 +266,8 @@ div {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding: 100px 0;
+      margin-bottom: -220px;
+    height: 100%;
 }
 
 .carousel-bg > .carousel-overlay {
@@ -281,12 +281,42 @@ div {
   filter: alpha(opacity=90);
 }
 
+.done {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.butomn {
+    color: #337ab7;
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #000;
+}
+
 section {
-  padding: 100px 0;
+  padding: 0 0 100px;
   position: relative;
 }
 
-.parallax > .overlay {
+
+.parallax  > .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  opacity: 0.70;
+  filter: alpha(opacity=90);
+}
+
+.firstintro  > .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -310,7 +340,7 @@ section > .container {
 }
 
 .title-section.small {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .title-section {
   display: table;
@@ -330,16 +360,11 @@ section > .container {
   padding: 0;
   text-align: center;
   position: relative;
+  margin-top: 100px;
 }
 
-.title-section:after {
-  content: "";
-  position: absolute;
-  border-bottom: solid 8px;
-  width: 100px;
-  bottom: -36px;
-  left: 50%;
-  margin-left: -50px;
+.btn{
+  border-radius: 50px;
 }
 
 .row {
@@ -386,72 +411,21 @@ section > .container {
 }
 
 
-#quote-carousel {
-  padding: 0 10px 30px 10px;
-  margin-top: 30px;
-}
-#quote-carousel .carousel-control {
-  background: none;
-  color: #CACACA;
-  font-size: 2.3em;
-  text-shadow: none;
-  margin-top: 30px;
-}
-#quote-carousel .carousel-control.left {
-  left: -60px;
-}
-#quote-carousel .carousel-control.right {
-  right: -60px;
-}
-#quote-carousel .carousel-indicators {
-  right: 50%;
-  top: auto;
-  bottom: 0px;
-  margin-right: -19px;
-}
-#quote-carousel .carousel-indicators li {
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  cursor: pointer;
-  border: 4px solid #CCC;
-  border-radius: 50px;
-  opacity: 0.4;
-  overflow: hidden;
-  transition: all 0.4s;
-}
-#quote-carousel .carousel-indicators .active {
-  background: #333333;
-  width: 128px;
-  height: 128px;
-  border-radius: 100px;
-  border-color: #f33;
-  opacity: 1;
-  overflow: hidden;
-}
+
 .carousel-inner {
-  min-height: 300px;
-}
-.item blockquote {
-  border-left: none;
-  margin: 0;
-}
-.item blockquote p:before {
-  content: "\f10d";
-  font-family: 'Fontawesome';
-  float: left;
-  margin-right: 10px;
-}
-
-
-.footer-item {
-  margin-bottom: 40px;
+  min-height: 0px;
 }
 
 footer {
-  padding: 100px 0 70px;
   position: relative;
-  background: #f5f5f5;
+  text-align: center;
+  padding: 100px 0 70px;
+  background: #337ab7;
+  color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+ background: #33a6cc;
 }
 
 .pricing-list ul {
@@ -460,7 +434,7 @@ footer {
 }
 
 .table-responsive {
-  background: #000 none repeat scroll 0 0;
+  background: #333 none repeat scroll 0 0;
   color: #fff;
   min-height: 0.01%;
 }
@@ -518,28 +492,6 @@ footer {
   margin-top: 40px
 }
 
-// .deletedlink{
-//   position: relative;
-//   color: #fff;
-//   background-image: url(/assets/deleted_linkmains.jpg);
-//   background-position: center center;
-//   background-attachment: fixed;
-//   -moz-background-size: contain;
-//   -o-background-size: cover;
-//   background-size: contain;
-//   padding: 100px 0;
-// }
-// .inactivelink{
-//   position: relative;
-//   color: #fff;
-//   background-image: url(/assets/deleted_link_inactive.jpg);
-//   background-position: center center;
-//   background-attachment: fixed;
-//   -moz-background-size: contain;
-//   -o-background-size: cover;
-//   background-size: contain;
-//   padding: 100px 0;
-// }
 .input-group-addon:first-child {
   border-right: 0;
   background: #000;
