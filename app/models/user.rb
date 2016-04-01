@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
       user.save
     end
   end
+
+  def self.top
+    order(link_count: :desc).limit(5)
+  end
 end

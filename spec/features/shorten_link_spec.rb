@@ -25,7 +25,7 @@ describe "Shortening a link", type: :feature do
 
       expect(Link.last.actual_url).to eq "http://futballtori.com"
     end
-     it "shortens link using the given vanity string" do
+    it "shortens link using the given vanity string" do
       OmniAuth.config.test_mode = true
       visit("/")
       click_link("Login")

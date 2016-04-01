@@ -1,25 +1,34 @@
 class LinksController < ApplicationController
   include ApplicationHelper
+  include StatisticConcern
   def create_url
-    if exists
+    if vanity_url_exist
       flash[:error] = "Custom URL already exists"
     else
-      link = Link.create!(link_params)
-
-      link.user_id = current_user.id if current_user
-      link.save
-      if link
-        flash[:short_url] = "#{request.protocol}#{request.host_with_port}/#{link.short_url}"
-      else
-        flash[:short_url] = nil
-      end
+      save_link
     end
-    redirect_page
+
+    redirect_to dashboard_path
+  end
+
+  def vanity_url_exist
+    Link.find_by(short_url: params[:link][:vanity]) if current_user
+  end
+
+  def save_link
+    link = Link.create!(link_params)
+    link.user_id = current_user.id if current_user
+    link.save
+    flash[:short_url] = "#{request.protocol}#{request.host_with_port}"\
+    "/#{link.short_url}"
+  end
+
+  def link_params
+    params.require(:link).permit(:actual_url, :vanity)
   end
 
   def handle_short_url
     @link = Link.find_by(short_url: params[:short_url])
-
     if @link && !@link.deleted
       direct_to_actual_url
     else
@@ -27,45 +36,15 @@ class LinksController < ApplicationController
     end
   end
 
-  def exists
-    Link.find_by(short_url: params[:link][:vanity]) if current_user
-  end
-
-  def link_params
-    params.require(:link).permit(:actual_url, :vanity)
-  end
-
-  def redirect_page
-    if current_user
-      redirect_to dashboard_path
-    else
-      redirect_to root_path
-    end
-  end
-
   def direct_to_actual_url
     if @link.active
       redirect_to @link.actual_url, status: 302
       @link.visits += 1
-      register_statistic
+      register_statistic(@link, request)
       @link.save
     else
       render :inactive_error
     end
-  end
-
-  def register_statistic
-    statistic = Statistic.new
-    statistic.ip_address = request.remote_ip
-    statistic.referer = request.referer
-    statistic.link_id = @link.id
-    statistic.browser_information = browser_details
-    statistic.save
-  end
-
-  def browser_details
-    user_agent = UserAgent.parse(request.env["HTTP_USER_AGENT"])
-    "#{user_agent.browser} #{user_agent.version}"
   end
 
   def show
@@ -78,9 +57,10 @@ class LinksController < ApplicationController
 
   def update
     link = Link.find_by(id: params[:id])
-    link.update(actual_url: params[:actual_url], active: active_to_bool(params[:active]))
-    link.update(short_url: params[:short_url])
-    link.update(vanity: params[:vanity])
+    link.update(
+      actual_url: params[:actual_url],
+      active: active_to_bool(params[:active])
+    )
     flash[:update] = "Link Updated Successfully"
     redirect_to dashboard_path
   end
@@ -93,8 +73,7 @@ class LinksController < ApplicationController
   end
 
   def active_to_bool(status)
-    return true if status == "active"
-    false
+    status == "active" ? true : false
   end
 
   def inactive_error

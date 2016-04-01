@@ -2,18 +2,17 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
       <div class="spacer">
-
         <h3 class=" profile text-center">Welcome <br> <%= current_user.name %></br> </h3>
         <div class="spacer"> </div>
       </div>
       <h3> <%= flash[:update] %></h3>
+      <h3> <%= flash[:error] %></h3>
       <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
       <div class="spacer"> </div>
-
       <div class="form-group">
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon3"><strong>Actual Url</strong> e.g https://google.com/</span>
-          <%= f.text_field :actual_url,  pattern: "(https?://)?([a-z0-9]+\\.)?[a-z0-9\\-]+\\.[a-z]+.+[^\\W\\_]", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control input-lg", required: true, data: { success: "ok", error: "Invalid" }  %>
+          <%= f.text_field :actual_url,  pattern: "(https?:\/\/)?([a-Z0-9\-]+\.[a-Z]{2,3})", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control input-lg", required: true, data: { success: "ok", error: "Invalid" }  %>
         </div>
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon3"> <strong> Vanity String </strong> e.g https://pearlbits.herokuapp.com/awesome/</span>
@@ -30,4 +29,3 @@
 </div>
 <div class="spacer"></div>
 <%= render partial:  'users_card' %>
-
