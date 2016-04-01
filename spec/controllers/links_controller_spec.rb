@@ -8,6 +8,8 @@ RSpec.describe LinksController, type: :controller do
   end
   describe "#delete" do
     it "deletes a link" do
+      login
+      create(:user)
       link = create(:link)
       get :delete, id: link.id
       expect(flash[:error]).to eq "Link has been deleted"
@@ -18,7 +20,7 @@ RSpec.describe LinksController, type: :controller do
       login
       create(:user)
       create(:link, vanity: "happy")
-      post :create_url, link: { vanity: "happy" }
+      post :create_url, link: { actual_url: "facebook.com", vanity: "happy" }
       expect(flash[:error]).to eq "Custom URL already exists"
     end
   end
@@ -40,6 +42,8 @@ RSpec.describe LinksController, type: :controller do
   end
   describe "#update" do
     it "updates the status of a link" do
+      login
+      create(:user)
       link = create(:link, short_url: "k")
       post :update, id: link.id, active: "inactive"
       expect(flash[:update]).to eq "Link Updated Successfully"
