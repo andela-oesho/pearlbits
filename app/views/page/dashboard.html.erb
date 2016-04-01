@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-c">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
       <div class="spacer">
@@ -8,20 +8,21 @@
       <h3> <%= flash[:error] %></h3>
       <%= form_for(:link, url: new_link_path, :html => {class: 'form-horizontal'}) do |f| %>
       <div class="spacer"> </div>
-      <div class="form-group">
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon3"><strong>Actual Url</strong> e.g https://google.com/</span>
-          <%= f.text_field :actual_url,  pattern: "(https?:\/\/)?([a-Z0-9\-]+\.[a-Z]{2,3})", class: "validate", placeholder: "e.g bitly.com" ,class:"form-control input-lg", required: true, data: { success: "ok", error: "Invalid" }  %>
+      <div class="container">
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :actual_url,  pattern: "(https?:\/\/)?([a-Z0-9\-]+\.[a-Z]{2,3})", class: "validate", placeholder: "e.g bitly.com" ,class:"my-input", required: true, data: { success: "ok", error: "Invalid" }  %>
+          </div>
+          <div class="input-group">
+            <%= f.text_field :vanity, placeholder: "optional" ,class:"my-input"   %>
+          </div>
+          <div class="my-button">
+            <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
+            <% end %>
+          </div>
+
+          <%= show_user_message %>
         </div>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon3"> <strong> Vanity String </strong> e.g https://pearlbits.herokuapp.com/awesome/</span>
-          <%= f.text_field :vanity, placeholder: "optional" ,class:"form-control input-lg"   %>
-        </div>
-      </div>
-      <div class="form-group text-center">
-        <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
-        <% end %>
-        <%= show_user_message %>
       </div>
     </div>
   </div>
