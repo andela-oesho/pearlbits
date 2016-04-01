@@ -23,4 +23,3 @@ describe "login logout users", type: :feature do
     end
   end
 end
-

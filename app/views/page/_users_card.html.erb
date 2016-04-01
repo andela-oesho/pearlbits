@@ -13,7 +13,6 @@
       </div>
       <div class="pricing-list">
         <ul>
-
           <% @recent_links.each do |link| %>
           <li><%= link_to  "#{request.protocol}#{request.host_with_port}/#{link['short_url']}", "/#{link.short_url}", :target => "_blank" %>  <br>  <%= link_to 'Details', "links/#{link.id}", class: "custombutton" %>
             <%= link_to 'edit', "links/#{link.id}/edit", class: "custombutton" %></br></li>
@@ -73,5 +72,4 @@
           </div>
         </div>
       </div>
-
     </div>

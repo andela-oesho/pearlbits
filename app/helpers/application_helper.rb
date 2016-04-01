@@ -25,6 +25,8 @@ module ApplicationHelper
   end
 
   def user_dashboard
-    link_to "My Dashboard", dashboard_path, class: "btn btn-primary btn-bavel" if current_user
+    if current_user
+      link_to "My Dashboard", dashboard_path, class: "btn btn-primary btn-bavel"
+    end
   end
 end

@@ -5,17 +5,16 @@ describe "managing a link", type: :feature do
     window.resize_to(width, height)
   end
   after(:all) do
-      Link.destroy_all
+    Link.destroy_all
   end
   def login
-
     OmniAuth.config.test_mode = true
     visit("/")
     click_link("Login")
     click_link("Sign in with Facebook")
   end
   context "editing target url" do
-    it "updates the target url", js:true do
+    it "updates the target url", js: true do
       login
       set_selenium_window_size(1024, 768)
       fill_in("link[actual_url]", with: "facebook.com")
