@@ -6,7 +6,7 @@ describe "login logout users", type: :feature do
       visit("/")
       click_link("Login")
       click_link("Sign in with Facebook")
-      expect(page).to have_content "Welcome"
+      expect(page).to have_content "Hi"
       expect(page).to have_content "Logout"
       expect(page).to have_content "My Dashboard"
     end
