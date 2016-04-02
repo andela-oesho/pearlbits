@@ -479,11 +479,6 @@ footer {
 }
 .user_url_box {
   background: #f1f1f1;
-  left: 13em;
-  margin-top: 16px;
-  position: absolute;
-  text-align: center;
-  width: 30%;
 }
 
 .badge {
@@ -633,5 +628,32 @@ h3, .h3 {
   font-size: 1.2em;
 }
 
+.my-input {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid black;
+  margin-top: 40px;
+  text-align: center;
+  width: 50em;
+}
+
+.my-input:focus {
+  border-bottom: 1px solid black;
+  outline: 0 none;
+}
+
+.my-button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center !important;
+  width: 50em;
+}
+
+.my-short-url {
+  padding-top: 10px;
+  text-align: center !important;
+  width: 50em;
+}
 
 
