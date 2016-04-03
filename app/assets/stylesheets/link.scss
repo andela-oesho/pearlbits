@@ -1,2 +1,23 @@
-
+.deletedlink{
+  position: relative;
+  color: #fff;
+  background-image: url(/assets/deleted_linkmains.jpg);
+  background-position: center center;
+  background-attachment: fixed;
+  -moz-background-size: contain;
+  -o-background-size: cover;
+  background-size: contain;
+  padding: 100px 0;
+}
+.inactivelink{
+  position: relative;
+  color: #fff;
+  background-image: url(/assets/deleted_link_inactive.jpg);
+  background-position: center center;
+  background-attachment: fixed;
+  -moz-background-size: contain;
+  -o-background-size: cover;
+  background-size: contain;
+  padding: 100px 0;
+}
 

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 require "faker"
 RSpec.describe User, type: :model do
   before do
@@ -33,5 +33,4 @@ RSpec.describe User, type: :model do
     User.from_omniauth(facebook_auth)
     expect(User.last.uid).to eq "1234"
   end
-
 end

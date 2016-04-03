@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - "vendor/**/*"
+    - "config/initializers/**/*"
     - "db/schema.rb"
   UseCache: false
 Style/CollectionMethods:
