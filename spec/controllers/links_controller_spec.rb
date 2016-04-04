@@ -7,7 +7,7 @@ RSpec.describe LinksController, type: :controller do
     Link.destroy_all
   end
   describe "#delete" do
-    it "gets the path" do
+    it "deletes a link" do
       link = create(:link)
       get :delete, id: link.id
       expect(flash[:error]).to eq "Link has been deleted"
