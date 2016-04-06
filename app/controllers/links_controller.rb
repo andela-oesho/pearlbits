@@ -53,7 +53,8 @@ class LinksController < ApplicationController
   def vanity_url_exist
     vanity = params[:link][:vanity]
     Link.find_by(short_url: vanity) if vanity != ""
-  end
+
+
 
   def save_link
     link = Link.create!(link_params)
