@@ -1,8 +1,7 @@
 class LinksController < ApplicationController
   include ApplicationHelper
-  include StatisticConcern
 
-  before_action :authenticate_user, except: [:create_url, :handle_short_url]
+before_action :authenticate_user, except: [:create_url, :handle_short_url]
 
   def create_url
     if vanity_url_exist
@@ -48,13 +47,12 @@ class LinksController < ApplicationController
     redirect_to dashboard_path
   end
 
-  private
+private
 
   def vanity_url_exist
     vanity = params[:link][:vanity]
     Link.find_by(short_url: vanity) if vanity != ""
-
-
+  end
 
   def save_link
     link = Link.create!(link_params)
@@ -71,7 +69,7 @@ class LinksController < ApplicationController
     if @link.active
       redirect_to @link.actual_url, status: 302
       @link.visits += 1
-      register_statistic(@link, request)
+      Statistic.register(@link, request)
       @link.save
     else
       render :inactive_error

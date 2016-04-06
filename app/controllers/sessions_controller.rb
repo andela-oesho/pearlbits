@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
+
   def new
   end
 
@@ -14,4 +15,9 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
+
+  def set_session(auth_param)
+    session[:user_id] = auth_param[:uid]
+  end
+
 end
