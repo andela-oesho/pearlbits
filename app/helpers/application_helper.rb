@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def current_user
-    @current_user = User.find_by(uid: session[:user_id])
-  end
-
   def show_url_message
     if flash[:short_url]
       render partial: "application/url"
@@ -16,7 +12,7 @@ module ApplicationHelper
   end
 
   def login_or_logout
-    if current_user
+    if @current_user
       link_to "Logout", logout_path, class: "btn btn-primary btn-bavel"
     else
       link_to "Login", login_path, class: "btn btn-primary btn-bavel"
@@ -24,14 +20,14 @@ module ApplicationHelper
   end
 
   def user_dashboard
-    if current_user
+    if @current_user
       link_to "My Dashboard", dashboard_path, class: "btn btn-primary"
     end
   end
 
   def welcome_user
-    if current_user
-     "Hi" + " " + current_user.name
-   end
+    if @current_user
+      "Hi" + " " + @current_user.name
+    end
   end
 end
