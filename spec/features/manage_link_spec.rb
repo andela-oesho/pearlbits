@@ -16,7 +16,7 @@ describe "managing a link", type: :feature do
   context "editing target url" do
     it "updates the target url", js: true do
       login
-      set_selenium_window_size(1024, 768)
+      set_selenium_window_size(1280, 768)
       fill_in("link[actual_url]", with: "facebook.com")
       fill_in("link[vanity]", with: "persons")
       click_button("Shorten Url")
