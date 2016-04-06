@@ -15,6 +15,7 @@
           </div>
           <div class="input-group">
             <%= f.text_field :vanity, placeholder: "optional" ,class:"my-input"   %>
+            <%= f.hidden_field :user_id, value: @current_user.id, class:"my-input"   %>
           </div>
           <div class="my-button">
             <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
