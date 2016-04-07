@@ -1,7 +1,7 @@
 class Statistic < ActiveRecord::Base
   belongs_to :link
 
-   def self.register(link, request)
+  def self.register(link, request)
     statistic = new
     statistic.ip_address = request.remote_ip
     statistic.referer = request.referer

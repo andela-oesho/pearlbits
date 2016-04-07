@@ -27,6 +27,7 @@ gem "capybara"
 gem "selenium-webdriver"
 gem "database_cleaner"
 gem "shoulda-matchers"
+gem "zeroclipboard-rails"
 gem "coveralls", require: false
 gem "puma"
 # gem "scss_lint", require: false

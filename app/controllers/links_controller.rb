@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   include ApplicationHelper
 
-before_action :authenticate_user, except: [:create_url, :handle_short_url]
+  before_action :authenticate_user, except: [:create_url, :handle_short_url]
 
   def create_url
     if vanity_url_exist
@@ -47,7 +47,7 @@ before_action :authenticate_user, except: [:create_url, :handle_short_url]
     redirect_to dashboard_path
   end
 
-private
+  private
 
   def vanity_url_exist
     vanity = params[:link][:vanity]

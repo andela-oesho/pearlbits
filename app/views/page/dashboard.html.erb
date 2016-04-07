@@ -1,6 +1,11 @@
 <div class="container my-c">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
+    <div class="container main-url-box">
+      <div class="alert alert-success copied">
+        <span class="glyphicon glyphicon-ok copied-text" aria-hidden="true"></span><span> Link Copied</span>
+      </div>
+    </div>
       <div class="spacer">
         <div class="spacer"> </div>
       </div>
@@ -18,9 +23,12 @@
             <%= f.hidden_field :user_id, value: @current_user.id, class:"my-input"   %>
           </div>
           <div class="my-button">
+
             <%= f.submit 'Shorten Url' ,class: "btn btn-primary btn-md" %>
-            <% end %>
           </div>
+          </div>
+        </div>
+        <% end %>
 
           <%= show_user_message %>
         </div>

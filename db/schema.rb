@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326041852) do
+ActiveRecord::Schema.define(version: 20160408001733) do
 
   create_table "links", force: :cascade do |t|
     t.string   "short_url"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20160326041852) do
     t.string   "referer"
     t.integer  "link_id"
   end
+
+  add_index "statistics", ["link_id"], name: "index_statistics_on_link_id"
 
   create_table "users", force: :cascade do |t|
     t.string  "name"

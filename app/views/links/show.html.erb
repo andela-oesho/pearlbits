@@ -1,45 +1,99 @@
 <div class="spacer"> </div>
-<div class="table-responsive">
-<table class= "table table bordered">
-<tr>
-<td> Actual Url</td>
-<td> <%=  @link.actual_url %> </td>
-</tr>
-<tr>
-<td> Short Url</td>
-<td><%= "#{request.protocol}#{request.host_with_port}/#{@link.short_url}" %></td>
-</tr>
-<tr>
-<td> Created At</td>
-<td><%= date(@link.created_at) %></td>
-</tr>
-<tr>
-<td> Visits </td>
-<td><%= @link.visits %> </td>
-</tr>
-</table>
+
+
+<div class="container">
+  <div class="stats">
+    <div class="row stats-row">
+      <div class="col-md-2">Actual Url</div>
+      <div class="col-md-6"> <%=  @link.actual_url %></div>
+    </div>
+    <div class="row stats-row">
+      <div class="col-md-2">Short Url</div>
+      <div class="col-md-6"> <%= "#{request.protocol}#{request.host_with_port}/#{@link.short_url}" %></div>
+    </div>
+    <div class="row stats-row">
+      <div class="col-md-2">Created At</div>
+      <div class="col-md-6"> <%= date(@link.created_at) %></div>
+    </div>
+    <div class="row stats-row">
+      <div class="col-md-2">Visits</div>
+      <div class="col-md-6"> <%= @link.visits %> </div>
+    </div>
+  </div>
 </div>
 <div>
 <h5 style= "text-align: center"> Further Details about the Link</h5>
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr>
-<th>Ip Address </th>
-<th>Browser_Information</th>
-<th>Referer</th>
-</thead>
-</tr>
-<tbody>
- <% @link.statistics.each do |stat|  %>
-<tr>
-<td><%= stat.ip_address %></td>
-<td><%= stat.browser_information %></td>
-<td><%=  stat.referer %></td>
-</tr>
-<% end %>
-</tbody>
-</table>
-</table>
-</div>
-<div class="spacer"></div>
+
+<div class="container">
+<div class="col-md-4">
+      <div class="pricing-table primary">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="glyphicon glyphicon-th-large"></i>
+              </div>
+              <div><h3> Ip Address </h3></div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-list">
+          <ul>
+            <% @link.statistics.each do |stat|  %>
+            <li><%= stat.ip_address %> </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="pricing-table primary">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="glyphicon glyphicon-th-large"></i>
+              </div>
+              <div><h3>Browser_Information</h3></div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-list">
+          <ul>
+            <% @link.statistics.each do |stat|  %>
+            <li><%= stat.browser_information %> </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="pricing-table primary">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="glyphicon glyphicon-th-large"></i>
+              </div>
+              <div><h3> Referer</h3></div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-list">
+          <ul>
+            <% @link.statistics.each do |stat|  %>
+            <li><%=  stat.referer %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+        </div>
+      </div>
+    </div>
+    </div>
