@@ -9,6 +9,6 @@ class PageController < ApplicationController
   end
 
   def dashboard
-    @recent_links = Link.retrieve(@current_user.id).order(id: :desc).limit(5)
+    @recent_links = Link.retrieve(@current_user.id)
   end
 end
