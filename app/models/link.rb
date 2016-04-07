@@ -15,7 +15,7 @@ class Link < ActiveRecord::Base
   end
 
   def self.retrieve(id)
-    where("user_id = ?", id)
+    where("user_id = ?", id).order(id: :desc).limit(5)
   end
 
   def self.popular
