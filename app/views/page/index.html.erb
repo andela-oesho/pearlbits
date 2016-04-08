@@ -1,6 +1,11 @@
 <section class="firstintro bg-testimonial">
   <div class="overlay"></div>
   <div class="container"></div>
+  <div class="container main-url-box">
+    <div class="alert alert-success copied">
+      <span class="glyphicon glyphicon-ok copied-text" aria-hidden="true"></span><span> Link Copied</span>
+    </div>
+</div>
   <div class="title-section small">
     <h4>Join PearlBits</h4>
     <p>leading link shortener built with rails....</p>
@@ -18,7 +23,7 @@
       </div>
     </div>
   </div>
-  <%= show_url_message %>
   <% end %>
+    <%= show_url_message %>
 </section>
 <%= render partial: 'pearlbits_cards' %>

@@ -434,8 +434,8 @@ footer {
 }
 
 .table-responsive {
-  background: #333 none repeat scroll 0 0;
-  color: #fff;
+  background: #fff none repeat scroll 0 0;
+  color: #000;
   min-height: 0.01%;
 }
 .navbar-fixed-top {
@@ -444,12 +444,10 @@ footer {
 }
 
 .url_box {
-  background: #fff none repeat scroll 0 0;
-  left: 20em;
-  margin-top: 30px;
-  position: absolute;
+  background: #fff;
+  margin: auto 0;
   text-align: center;
-  width: 30%;
+  width: 100%;
 }
 .user_url_box {
   background: #f1f1f1;
@@ -608,4 +606,37 @@ h3, .h3 {
   width: 50em;
 }
 
+.main-url-box {
+  margin: 0 auto;
+  margin-top: 1.4em;
+  width: 400px;
+}
 
+.clip-button-div {
+  margin: auto 0;
+  text-align: center;
+  width: 100%;
+}
+
+.copied {
+  display: none;
+  font-size: 1.2em;
+  padding-left: 1px !important;
+  height: 3em;
+  margin: auto 0;
+  text-align: center;
+}
+
+.copied-text {
+  font-size: 1em;
+}
+
+.stats {
+  font-size: 16px;
+  font-weight: bold;;
+  margin-left: 1em;
+}
+
+.stats-row {
+  padding: 2px;
+}

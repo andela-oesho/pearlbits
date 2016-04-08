@@ -1,3 +1,8 @@
 <div class="my-short-url user_url_box">
   <%= link_to(flash[:short_url], flash[:short_url], :target => "_blank") %>
   </div>
+<div class="my-short-url">
+  <div class="clip-button-div">
+      <button class='btn btn-primary clip_button' data-clipboard-text= <%= flash[:short_url] %> >Copy Link</button>
+      </div>
+</div>
